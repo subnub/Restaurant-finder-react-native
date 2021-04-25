@@ -17,7 +17,7 @@ const Search: React.FC<SearchTypes> = ({ setBuissnessList }) => {
 
   const onPressCloseIcon = async () => {
     onChangeTextInputValue('');
-    await setBuissnessList('pasta');
+    await setBuissnessList('itialian');
   };
 
   const onEndEditing = async () => {
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 5,
   },
   Box: {
     width: '95%',

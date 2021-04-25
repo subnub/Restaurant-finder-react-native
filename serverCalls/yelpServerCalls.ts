@@ -5,8 +5,13 @@ export const getBuissnessList = async (text: string, limit = 50) => {
     params: {
       term: text,
       limit,
-      location: 'san jose',
+      location: 'west warwick',
     },
   });
   return businessesList;
+};
+
+export const getBuissness = async (id: string) => {
+  const buissness = await yelp.get(`/${id}`);
+  return buissness;
 };

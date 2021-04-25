@@ -21,13 +21,13 @@ export const useBuissnesses = () => {
   const [errorMessage, setErrorMessage] = useState();
 
   useEffect(() => {
-    setBuissnessList('pasta');
+    setBuissnessList('itialian');
   }, []);
 
   const setBuissnessList = async (text: string, limit?: number) => {
     try {
       const buissnessList = await getBuissnessList(text, limit);
-      console.log('buissness data', buissnessList);
+      //console.log('buissness data', buissnessList);
       setResults(buissnessList.data.businesses);
     } catch (e) {
       console.log('Search Buissnesses Error', e);
@@ -36,5 +36,7 @@ export const useBuissnesses = () => {
     }
   };
 
-  return { results, setBuissnessList, errorMessage };
+  const resultsType = results as Object[];
+
+  return { results: resultsType, setBuissnessList, errorMessage };
 };
