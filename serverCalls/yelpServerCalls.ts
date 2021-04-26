@@ -1,6 +1,7 @@
 import yelp from '../api/yelp';
 
 export const getBuissnessList = async (text: string, limit = 50) => {
+  console.log('get buissness', text);
   const businessesList = await yelp.get('/search', {
     params: {
       term: text,

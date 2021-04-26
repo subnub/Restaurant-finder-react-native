@@ -30,8 +30,8 @@ const ResultsListItem: React.FC<ResultsListItemProps> = ({ item }) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 250,
-    height: 120,
+    width: 280,
+    height: 125,
     borderRadius: 6,
     marginBottom: 5,
   },

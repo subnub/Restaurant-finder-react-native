@@ -19,10 +19,10 @@ export default () => {
       <StackNavigator.Navigator initialRouteName="Home">
         <StackNavigator.Screen component={HomeScreen} name="Home" />
         <StackNavigator.Screen
+          options={{
+            headerShown: true,
+          }}
           name="ResultsPage"
-          // options={({ route }: any) => ({
-          //   title: route.params.name,
-          // })}
           component={ResultsPage}
         />
       </StackNavigator.Navigator>

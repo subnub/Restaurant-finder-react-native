@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import filterBuisnessesByPrice from '../helper/filterBuissnessesByPrice';
 import { useBuissnesses } from '../hooks';
@@ -10,7 +17,7 @@ import ResultsList from './ResultsList';
 import Search from './Search';
 
 const HomeScreen = ({ navigation }: HomeNavProps<'Home'>) => {
-  const { results, setBuissnessList } = useBuissnesses();
+  const { results, setBuissnessList, loading } = useBuissnesses();
   const filteredResults: any = React.useMemo(
     () => filterBuisnessesByPrice(results),
     [results],
@@ -19,6 +26,17 @@ const HomeScreen = ({ navigation }: HomeNavProps<'Home'>) => {
   //const filteredResults: any = filterBuisnessesByPrice(results)
 
   //console.log('filted price', filteredResults);
+
+  if (loading) {
+    return (
+      <>
+        <Search setBuissnessList={setBuissnessList} />
+        <Center>
+          <ActivityIndicator size="large" />
+        </Center>
+      </>
+    );
+  }
 
   return (
     <>
@@ -29,7 +47,7 @@ const HomeScreen = ({ navigation }: HomeNavProps<'Home'>) => {
           list={filteredResults.lowPricePoint}
         />
         <ResultsList
-          title={'Bit Precier'}
+          title={'Bit Pricer'}
           list={filteredResults.mediumPricePoint}
         />
         <ResultsList
